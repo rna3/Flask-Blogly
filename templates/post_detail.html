@@ -12,6 +12,15 @@
     on {{ post.created_at }}
 </p>
 
+{% if post.tags %}
+<p>
+  <b>Tags:</b>
+  {% for tag in post.tags %}
+  <a href="/tags/{{ tag.id }}">{{ tag.name }}</a>
+  {% endfor %}
+</p>
+{% endif %}
+
 <form>
   <button formmethod="GET"
           formaction="/user-details/{{ post.user_id }}"">Cancel</button>
